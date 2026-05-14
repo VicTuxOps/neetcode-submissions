@@ -1,0 +1,10 @@
+variable=7
+print(type(variable))
+variable=7.3
+print(type(variable))
+variable=True
+print(type(variable))
+variable="Test"
+print(type(variable))
+variable=[1,2,3]
+print(type(variable))
