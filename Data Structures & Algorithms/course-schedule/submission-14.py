@@ -1,0 +1,35 @@
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        adjList = {i: [] for i in range(numCourses)}
+        visit = set()
+
+        print(adjList)
+        if not prerequisites:
+            return True
+
+        for course, pre in prerequisites:
+            adjList[course].append(pre)
+            #print(adjList)
+
+        for course in range(numCourses):
+            print(course)
+            if not self.dfs(course, numCourses-1, adjList, visit):
+                return False
+        
+        return True
+        
+    def dfs(self, course, target, adjList, visit):
+        if course in visit:
+            return False
+        if adjList[course] == []:
+            return True
+            
+        visit.add(course)
+        for pair in adjList[course]:
+            print(pair)
+            if not self.dfs(pair, target, adjList, visit):
+                return False
+        visit.remove(course)
+        adjList[course] = []
+        
+        return True
