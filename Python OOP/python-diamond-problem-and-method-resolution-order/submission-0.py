@@ -1,0 +1,18 @@
+class A:
+    def print_method(self) -> None:
+        print("A")
+
+class B(A):
+    def print_method(self) -> None:
+        print("B")
+
+class C(A):
+    pass
+
+class D(C, B): 
+    pass
+
+
+# Do not change the code below
+d = D()
+d.print_method()
